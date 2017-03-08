@@ -3,6 +3,7 @@ import PostsList from './PostsList'
 import {connect } from 'react-redux';
 import {fetchPosts} from './action'
 
+
 class PostsPage extends React.Component{
   componentDidMount(){
     this.props.fetchPosts();
