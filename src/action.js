@@ -7,6 +7,33 @@ export function setPosts(posts){
   }
 }
 
+export function handleResponse(response){
+  if(response.ok){
+    return response;
+
+  }else{
+    let error = new Error(response);
+    console.log(response);
+    error.response = response;
+    throw error;
+  }
+
+}
+
+
+export function savePost(data){
+
+  return dispatch =>{
+    return fetch('http://localhost:4000/api/posts',{
+      method:'post',
+      body:data,
+      headers:{
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    }).then(handleResponse);
+  }
+}
+
 export function fetchPosts(){
   return dispatch=>{
     console.log("this.refs.myRef");

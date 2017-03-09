@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import { Link, Match } from 'react-router';
 import PostsPage from './PostsPage';
-import PostsForm from './PostsForm'
+import PostsForm from './PostsForm';
 import './App.css';
 
 class App extends Component {
