@@ -39,9 +39,13 @@ class PostsForm extends React.Component{
 
     if (isValid){
       const { title, contant } = this.state;
+      const newdata ={
+        'title':title,
+        'contant':contant
+      }
+      console.log(newdata);
       this.setState({ loading:true });
-      console.log(this.state);
-      this.props.savePost("title="+title+"&contant="+contant).then(
+      this.props.savePost("title="+title+"&contant="+contant,newdata).then(
         ()=>this.setState({loading:false, done:true}),
         (err)=> err.response.then(({errors})=> this.setState({errors, loading:false}))
       );

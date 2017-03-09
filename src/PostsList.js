@@ -1,4 +1,5 @@
 import React from 'react';
+import PostListShow from './PostListShow';
 
 export default function PostsList({ posts }){
   const emptyMessage = (
@@ -6,7 +7,9 @@ export default function PostsList({ posts }){
   );
 
   const Message =(
-    <p>the posts list</p>
+    <div className="ui list">
+      {posts.map(post => <PostListShow post={post} key={post._id} />)}
+    </div>
   );
 
   return(

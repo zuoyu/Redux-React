@@ -1,4 +1,5 @@
 export const SET_POSTS ='SET_POSTS'
+export const ADD_POST ='ADD_POST'
 
 export function setPosts(posts){
   return{
@@ -20,8 +21,15 @@ export function handleResponse(response){
 
 }
 
+export function addPost(post){
+  return {
+    type: ADD_POST,
+    post
+  }
+}
 
-export function savePost(data){
+
+export function savePost(data,newdata){
 
   return dispatch =>{
     return fetch('http://localhost:4000/api/posts',{
@@ -30,7 +38,8 @@ export function savePost(data){
       headers:{
         "Content-Type": "application/x-www-form-urlencoded"
       }
-    }).then(handleResponse);
+    }).then(handleResponse)
+    .then(data => dispatch(addPost(newdata)));
   }
 }
 
