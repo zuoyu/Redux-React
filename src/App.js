@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link, Match } from 'react-router';
 import PostsPage from './PostsPage';
 import PostsForm from './PostsForm';
+import PostsDetails from './PostsDetails';
 import './App.css';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
 
         <Match exactly pattern="/posts" component={PostsPage} />
         <Match pattern="/posts/new" component={PostsForm} />
+        <Match pattern="/posts/:_id" component={PostsDetails} />
       </div>
     );
   }
