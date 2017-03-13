@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect } from 'react-redux';
 import {fetchPostsDetails} from './action'
+import DetailsList from './DetailsList'
+import CommendShow from './CommendShow'
 
 
 class PostsDetails extends React.Component{
@@ -19,36 +21,43 @@ class PostsDetails extends React.Component{
   }
 
 
-  state ={
-    _id:'',
-    title:'',
-    contant:'',
-    errors:{},
-    message:'dfg'
-  }
   render(){
+    if (this.props.params._id != 'new'){
+      console.log(this.props.details.commendss);
     return(
       <div>
         <h1> Posts page details</h1>
+        <DetailsList details={this.props.details}/>
+      </div>
+
+
+    );
+  }else{
+    return(
+      <div>
 
       </div>
-    );
+    )
+
   }
+}
 }
 
 PostsDetails.propTypes={
-  fetchPostsDetails: React.PropTypes.func.isRequired
+  fetchPostsDetails: React.PropTypes.func.isRequired,
+  details:React.PropTypes.object.isRequired
+
 }
 
 function mapStateToProps(state,props){
   if (props.params._id){
     return{
-      post: state.posts.find(item =>item._id === props.params._id)
+      details: state.details
     }
   }
 
   return{
-    post:null
+    details:null
   };
 
 }

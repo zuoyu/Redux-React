@@ -3,6 +3,7 @@
 export const SET_POSTS ='SET_POSTS'
 export const ADD_POST ='ADD_POST'
 export const POST_DELETED = 'POST_DELETED'
+export const SET_DETAILS = 'SET_DETAILS'
 
 export function setPosts(posts){
   return{
@@ -19,6 +20,13 @@ export function handleResponse(response){
     console.log(response);
     error.response = response;
     throw error;
+  }
+}
+
+export function setPostDetails(details){
+  return{
+    type:SET_DETAILS,
+    details
   }
 }
 
@@ -77,10 +85,9 @@ export function fetchPosts(){
 
 export function fetchPostsDetails(id){
   return dispatch=>{
-    //console.log("this.refs.myRef");
     fetch('http://localhost:4000/api/postdetails?id='+id)
       .then(res => res.json())
-      .then(data=> console.log(data));
+      .then(data=> dispatch(setPostDetails(data)));
   }
 
 }
