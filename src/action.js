@@ -4,6 +4,7 @@ export const SET_POSTS ='SET_POSTS'
 export const ADD_POST ='ADD_POST'
 export const POST_DELETED = 'POST_DELETED'
 export const SET_DETAILS = 'SET_DETAILS'
+export const SET_COMMENDS ='SET_COMMENDS'
 
 export function setPosts(posts){
   return{
@@ -27,6 +28,13 @@ export function setPostDetails(details){
   return{
     type:SET_DETAILS,
     details
+  }
+}
+
+export function setCommends(commends){
+  return{
+    type:SET_COMMENDS,
+    commends
   }
 }
 
@@ -79,7 +87,8 @@ export function fetchPosts(){
     //console.log("this.refs.myRef");
     fetch('http://localhost:4000/api/posts')
       .then(res => res.json())
-      .then(data=> dispatch(setPosts(data.posts)));
+      .then(data=>
+        dispatch(setPosts(data.posts)));
   }
 }
 
@@ -88,6 +97,14 @@ export function fetchPostsDetails(id){
     fetch('http://localhost:4000/api/postdetails?id='+id)
       .then(res => res.json())
       .then(data=> dispatch(setPostDetails(data)));
+  }
+}
+
+export function fetchCommends(id){
+  return dispatch=>{
+    fetch('http://localhost:4000/api/postdetails?id='+id)
+      .then(res => res.json())
+      .then(data=>dispatch(setCommends(data.commendss)));
   }
 
 }

@@ -13,7 +13,7 @@ export default function DetailsList({ details }){
       {posts.map(post => <PostListShow post={post} key={post._id} deletePost={deletePost} />)}
     </div>
   );*/
-  console.log(details.commendss)
+  //console.log(commends)
 
   const emptyMessage = (
     <p>Can not find the collection</p>
@@ -22,7 +22,6 @@ export default function DetailsList({ details }){
   const Message =(
     <div className="ui list">
        <DetailShow details={details}  />
-       
 
     </div>
   );
@@ -39,5 +38,6 @@ export default function DetailsList({ details }){
 }
 
 DetailsList.propTypes={
-  details:React.PropTypes.object.isRequired
+  details:React.PropTypes.object.isRequired,
+  //commends:React.PropTypes.array.isRequired
 }
