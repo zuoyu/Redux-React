@@ -31,6 +31,10 @@ export function setPostDetails(details){
   }
 }
 
+
+
+
+
 export function setCommends(commends){
   return{
     type:SET_COMMENDS,
@@ -64,6 +68,20 @@ export function savePost(data,newdata){
       }
     }).then(handleResponse)
     .then(data => dispatch(addPost(newdata)));
+  }
+}
+
+export function postComment(data){
+  console.log(data);
+  return dispatch =>{
+    return fetch('http://localhost:4000/api/commends',{
+      method:'post',
+      body:data,
+      headers:{
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    }).then(handleResponse)
+    //.then(data => dispatch(addPost(newdata)));
   }
 }
 

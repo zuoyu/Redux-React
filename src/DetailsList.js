@@ -16,7 +16,7 @@ export default function DetailsList({ details }){
   );*/
   //console.log(commends)
   //this.props.fetchCommends(this.props.params._id);
-  console.log(details.commendss)
+  //console.log(details.commendss)
 
   const emptyMessage = (
     <p>Can not find the collection</p>
@@ -25,11 +25,8 @@ export default function DetailsList({ details }){
   const Message =(
     <div className="ui list">
        <DetailShow details={details} />
-
+       <br/>
        <CommendShow commends = {details.commendss} />
-
-  
-
     </div>
   );
 
