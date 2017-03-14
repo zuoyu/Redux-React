@@ -1,6 +1,7 @@
 import React from 'react';
 import DetailShow from './DetailShow';
-import CommendShow from './CommendShow'
+import CommendShow from './CommendShow';
+
 
 export default function DetailsList({ details }){
   /*const emptyMessage = (
@@ -14,6 +15,8 @@ export default function DetailsList({ details }){
     </div>
   );*/
   //console.log(commends)
+  //this.props.fetchCommends(this.props.params._id);
+  console.log(details.commendss)
 
   const emptyMessage = (
     <p>Can not find the collection</p>
@@ -21,7 +24,11 @@ export default function DetailsList({ details }){
 
   const Message =(
     <div className="ui list">
-       <DetailShow details={details}  />
+       <DetailShow details={details} />
+
+       <CommendShow commends = {details.commendss} />
+
+  
 
     </div>
   );

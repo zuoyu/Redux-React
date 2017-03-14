@@ -18,7 +18,6 @@ class PostsDetails extends React.Component{
   componentDidMount(){
     if(this.props.params._id){
         this.props.fetchPostsDetails(this.props.params._id);
-        //this.props.fetchCommends(this.props.params._id);
     }
   }
 
@@ -57,13 +56,13 @@ function mapStateToProps(state,props){
   if (props.params._id){
     return{
       details: state.details,
-      commends:state.commends
+      //commends:state.commends
     }
   }
 
   return{
     details:null,
-    commend:null
+    //commend:null
   };
 
 }
