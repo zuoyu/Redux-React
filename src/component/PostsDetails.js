@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect } from 'react-redux';
-import {fetchPostsDetails} from './action'
-import {fetchCommends} from './action'
-import {postComment} from './action'
+import {fetchPostsDetails} from '../action'
+import {fetchCommends} from '../action'
+import {postComment} from '../action'
 import DetailsList from './DetailsList'
 import CommendShow from './CommendShow'
 import { Redirect } from 'react-router';
@@ -24,9 +24,8 @@ class PostsDetails extends React.Component{
   }
 
 
-
+//when enter the text into the input box
   handlChange = (e) =>{
-
     if(!!this.state.error[e.target.name]){
       let error = Object.assign({},this.state.errors);
       delete error[e.target.name];
@@ -36,23 +35,18 @@ class PostsDetails extends React.Component{
       });
     }else{
       this.setState({[e.target.name]:e.target.value});
-
     }
-
-
   }
 
+  //when click the commet button
   handleSubmit=(e)=>{
     e.preventDefault();
-
     //validation
     console.log(this.state.comment);
     let error={};
     if(this.state.comment === '') error.comment = "Can't be empty";
     this.setState({error});
-
     const isValid =Object.keys(error).length === 0;
-
     if (isValid){
       const {commend,post_id} =this.state;
       console.log({commend,post_id});
@@ -72,9 +66,7 @@ class PostsDetails extends React.Component{
     }
   }
 
-
   render(){
-
     const form =(
       <form className={classnames('ui','form',{loading:this.state.loading})} onSubmit={this.handleSubmit}>
         <div className={classnames('field',{error:!!this.state.error.comment})}>
@@ -91,14 +83,8 @@ class PostsDetails extends React.Component{
           <button className="ui primary button"> Comment</button>
         </div>
       </form>
-
     )
-
-
-
-
     if (this.props.params._id != 'new'){
-      //console.log(this.props.commends);
     return(
       <div>
       <div>
@@ -108,45 +94,31 @@ class PostsDetails extends React.Component{
         </div>
         <div>
           {this.state.done ? window.location.reload() : form}
-
         </div>
-
       </div>
-
-
-
-
     );
   }else{
     return(
       <div>
-
       </div>
     )
-
   }
 }
 }
 
 PostsDetails.propTypes={
   fetchPostsDetails: React.PropTypes.func.isRequired,
-  //fetchCommends: React.PropTypes.func.isRequired,
-  details:React.PropTypes.object.isRequired,
-  //commends:React.PropTypes.array.isRequired
-
+  details:React.PropTypes.object.isRequired
 }
 
 function mapStateToProps(state,props){
   if (props.params._id){
     return{
-      details: state.details,
-      //commends:state.commends
+      details: state.details
     }
   }
-
   return{
-    details:null,
-    //commend:null
+    details:null
   };
 
 }

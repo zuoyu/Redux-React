@@ -1,7 +1,7 @@
 import React from 'react';
 import PostsList from './PostsList'
 import {connect } from 'react-redux';
-import {fetchPosts, deletePost} from './action'
+import {fetchPosts, deletePost} from '../action'
 
 
 class PostsPage extends React.Component{

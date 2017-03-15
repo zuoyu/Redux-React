@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import { Link, Match } from 'react-router';
-import PostsPage from './PostsPage';
-import PostsForm from './PostsForm';
-import PostsDetails from './PostsDetails';
+import PostsPage from './component/PostsPage';
+import PostsForm from './component/PostsForm';
+import PostsDetails from './component/PostsDetails';
 import './App.css';
 
 class App extends Component {
   render() {
+    //contain the nav bar and linked page
     return (
       <div>
         <div className="ui three column doubling stackable grid container">

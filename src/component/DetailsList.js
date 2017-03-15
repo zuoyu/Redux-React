@@ -4,24 +4,12 @@ import CommendShow from './CommendShow';
 
 
 export default function DetailsList({ details }){
-  /*const emptyMessage = (
-    <p>Can not find the collection</p>
-  );
-  cons
 
-  const Message =(
-    <div className="ui list">
-      {posts.map(post => <PostListShow post={post} key={post._id} deletePost={deletePost} />)}
-    </div>
-  );*/
-  //console.log(commends)
-  //this.props.fetchCommends(this.props.params._id);
-  //console.log(details.commendss)
-
+  //when frontend can't find the data return the details information
   const emptyMessage = (
     <p>Can not find the collection</p>
   );
-
+  //when find the data return the details information
   const Message =(
     <div className="ui list">
        <DetailShow details={details} />
@@ -33,15 +21,10 @@ export default function DetailsList({ details }){
   return(
     <div>
       {details.length === 0 ? emptyMessage : Message}
-
     </div>
-
   );
-
-
 }
 
 DetailsList.propTypes={
-  details:React.PropTypes.object.isRequired,
-  //commends:React.PropTypes.array.isRequired
+  details:React.PropTypes.object.isRequired
 }

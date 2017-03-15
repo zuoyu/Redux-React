@@ -9,16 +9,13 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router';
 import './index.css';
 
-
+//create a redux store
 const store = createStore(
-
   rootReducer,
   composeWithDevTools(
       applyMiddleware(thunk)
   )
 );
-
-
 
 ReactDOM.render(
   <BrowserRouter>

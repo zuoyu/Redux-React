@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 export default function PostListShow({ details }) {
+  // it show the main post for the detail
   return(
     <div className="item">
     <i className="right triangle icon"></i>

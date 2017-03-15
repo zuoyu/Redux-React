@@ -6,12 +6,6 @@ export const POST_DELETED = 'POST_DELETED'
 export const SET_DETAILS = 'SET_DETAILS'
 export const SET_COMMENDS ='SET_COMMENDS'
 
-export function setPosts(posts){
-  return{
-    type:SET_POSTS,
-    posts
-  }
-}
 
 export function handleResponse(response){
   if(response.ok){
@@ -24,6 +18,13 @@ export function handleResponse(response){
   }
 }
 
+export function setPosts(posts){
+  return{
+    type:SET_POSTS,
+    posts
+  }
+}
+
 export function setPostDetails(details){
   return{
     type:SET_DETAILS,
@@ -32,9 +33,7 @@ export function setPostDetails(details){
 }
 
 
-
-
-
+//currently not use the function
 export function setCommends(commends){
   return{
     type:SET_COMMENDS,
@@ -57,6 +56,8 @@ export function postDeleted(postId){
 }
 
 
+//action send post request to the server
+//save it into redux store
 export function savePost(data,newdata){
   console.log(data);
   return dispatch =>{
@@ -71,6 +72,8 @@ export function savePost(data,newdata){
   }
 }
 
+//action send post request to the server
+//save it into redux store
 export function postComment(data){
   console.log(data);
   return dispatch =>{
@@ -81,12 +84,13 @@ export function postComment(data){
         "Content-Type": "application/x-www-form-urlencoded"
       }
     }).then(handleResponse)
-    //.then(data => dispatch(addPost(newdata)));
   }
 }
 
-export function deletePost(id){
 
+//action send delete request to the server
+//remove it from redux
+export function deletePost(id){
   return dispatch =>{
     console.log("_id="+id)
     return fetch('http://localhost:4000/api/posts',{
@@ -100,6 +104,9 @@ export function deletePost(id){
   }
 }
 
+
+//action send get request to the server
+//remove it from redux
 export function fetchPosts(){
   return dispatch=>{
     //console.log("this.refs.myRef");
@@ -110,6 +117,8 @@ export function fetchPosts(){
   }
 }
 
+//action send get request to the server
+//remove it from redux
 export function fetchPostsDetails(id){
   return dispatch=>{
     fetch('http://localhost:4000/api/postdetails?id='+id)
@@ -118,6 +127,8 @@ export function fetchPostsDetails(id){
   }
 }
 
+
+//current not use this function
 export function fetchCommends(id){
   return dispatch=>{
     fetch('http://localhost:4000/api/postdetails?id='+id)

@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
-import { savePost } from './action';
+import { savePost } from '../action';
 import { Redirect } from 'react-router';
 
 class PostsForm extends React.Component{
@@ -14,6 +14,7 @@ class PostsForm extends React.Component{
     done:false
   }
 
+//when enter the text into the input box
   handlChange = (e) =>{
     if(!!this.state.errors[e.target.name]){
       let errors = Object.assign({}, this.state.errors);
@@ -25,11 +26,11 @@ class PostsForm extends React.Component{
     }else{
       this.setState({[e.target.name]:e.target.value});
     }
-
   }
+
+    //when click the save button
   handleSubmit =(e) =>{
     e.preventDefault();
-
     //validation
     let errors={};
     if(this.state.title === '') errors.title="Can't be empty";

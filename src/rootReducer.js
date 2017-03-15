@@ -6,6 +6,5 @@ import commends from './reducers/commends';
 
 export default combineReducers({
   posts,
-  details,
-  commends
+  details
 })
